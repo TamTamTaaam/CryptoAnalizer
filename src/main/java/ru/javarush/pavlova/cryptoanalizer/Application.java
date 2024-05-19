@@ -14,13 +14,17 @@ public class Application {
 
     }
 
-    public Result run(String[] args) {
+    public Result run(String[] args)  {
+        //encode text.txt encode.txt 12
         if (args.length>0) {
-            String action = args[0];
-            String[] parameters = Arrays.copyOfRange(args, 1, args.length);
+            String action = args[0]; //encode
+            String[] parameters = Arrays.copyOfRange(args, 1, args.length); // parameters - ext.txt encode.txt 12
             Result result = mainController.doAction(action, parameters);
+            return result;
+        } else {
+            throw new AppException("no args");
         }
-        throw new AppException();
+
     }
 }
 

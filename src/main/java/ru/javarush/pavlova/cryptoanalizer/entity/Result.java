@@ -1,6 +1,19 @@
 package ru.javarush.pavlova.cryptoanalizer.entity;
 
 public class Result { //дынные/сущность/модель
+    private final String message;
+    private final ResultCode resultCode;
 
+
+    public Result(String message, ResultCode resultCode) {
+        this.message = message;
+        this.resultCode = resultCode;
+    }
+    public String toString() {
+        return "Result{" +
+                "message='" + message + '\'' +
+                ", resultCode=" + resultCode +
+                '}';
+    }
 
 }
