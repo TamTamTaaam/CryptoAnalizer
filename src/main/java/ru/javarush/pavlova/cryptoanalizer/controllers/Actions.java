@@ -8,6 +8,7 @@ import ru.javarush.pavlova.exceptions.AppException;
 
 public enum Actions {
     ENCODE(new Encoder()),
+
     DECODE(new Decoder()),
     BRUTEFORCE(new BruteForce());
 
