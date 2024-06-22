@@ -16,7 +16,6 @@ public class Decoder implements Action {
     private int newIndex = 0;
     @Override
     public Result execute(String[] parameters) throws IOException {
-        //to do something
         ArrayList<String> list = (ArrayList<String>) FileProcessor.readFile(parameters[0]);
         key = Integer.parseInt(parameters[parameters.length-1]);
         List<String> RESULT_ACTIONS = new ArrayList<>();
