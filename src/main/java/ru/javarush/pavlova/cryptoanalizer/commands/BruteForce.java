@@ -9,11 +9,13 @@ import java.util.*;
 public class BruteForce implements Action {
     @Override
     public Result execute(String[] parameters) {
-        //to do something
-        //должен возвращать ключ. Ключ шифрования = ...
         ArrayList<String> list = (ArrayList<String>) FileProcessor.readFile(parameters[0]);
+        int key = createKey(createMapBF(createListTenStr(list)));
+        String message = "bruteforce all right. Key = " + key;
+        return new Result(message, ResultCode.OK);
+    }
+    private ArrayList<String> createListTenStr(ArrayList<String> list) {
         ArrayList<String> tenStr = new ArrayList<>();
-        Map<Character, Integer> BRUTE_FORCE = new HashMap<>();
         if (list.size() >= 10) {
             for (int i = 0; i < 10; i++) {
                 tenStr.add(list.get(i));
@@ -21,6 +23,10 @@ public class BruteForce implements Action {
         } else {
             tenStr = list;
         }
+        return tenStr;
+    }
+    private Map<Character, Integer> createMapBF(ArrayList<String> tenStr) {
+        Map<Character, Integer> BRUTE_FORCE = new HashMap<>();
         for (String str : tenStr) {
             if(str.isEmpty()) {
                 break;
@@ -41,14 +47,10 @@ public class BruteForce implements Action {
                 }
             }
         }
-        Character char_max = valueList(BRUTE_FORCE);
-        int key = Alphabet.getCharIndex(char_max) - Alphabet.getCharIndex(' ');
-        String message = "bruteforce all right. Key = " + key;
-
-        return new Result(message, ResultCode.OK);
+        return BRUTE_FORCE;
     }
 
-    public Character valueList(Map<Character, Integer> BRUTE_FORCE) {
+    private Character valueList(Map<Character, Integer> BRUTE_FORCE) {
         Set<Map.Entry<Character, Integer>> entries = BRUTE_FORCE.entrySet();
         Integer max = 0;
         Character maxChar = '@';
@@ -60,5 +62,9 @@ public class BruteForce implements Action {
             }
         }
         return  maxChar;
+    }
+    private int createKey (Map<Character, Integer> BRUTE_FORCE) {
+        Character char_max = valueList(BRUTE_FORCE);
+        return Alphabet.getCharIndex(char_max) - Alphabet.getCharIndex(' ');
     }
 }
