@@ -16,10 +16,9 @@ public class Application {
 
     }
     public Result run(String[] args) throws IOException {
-        //encode text.txt encode.txt 12
         if (args.length>0) {
-            String action = args[0]; //encode
-            String[] parameters = Arrays.copyOfRange(args, 1, args.length); // parameters - ext.txt encode.txt 12
+            String action = args[0];
+            String[] parameters = Arrays.copyOfRange(args, 1, args.length);
             Result result = mainController.doAction(action, parameters);
             return result;
         } else {
@@ -28,7 +27,7 @@ public class Application {
             return result;
         }
     }
-    public String[] whatToDo() { // метод, который определяет что делаем - кодируем, декодируем, брутфорсим
+    public String[] whatToDo() {
         System.out.println("Что делать будем? \n" +
                 "1. Шифровать(кодировать)\n" +
                 "2. Расшифровывать(декодировать)\n" +
