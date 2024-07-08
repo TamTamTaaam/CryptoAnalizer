@@ -14,14 +14,8 @@ import java.util.List;
 
 public class FileProcessor {
 
-    public static List<String> readFile(String fileName) {
+    public List<String> readFile(String fileName) {
         ArrayList<String> result = new ArrayList<>();
-//            try {
-//            Path filePath = Path.of(input);
-//            return Files.lines(filePath).map(String::toLowerCase).collect(Collectors.toCollection(ArrayList::new));
-//        } catch (Exception e) {
-//            throw new IOException(e.getMessage());
-//        }
             try {
                 BufferedReader br = new BufferedReader(new FileReader(new File(fileName)));
                 String line;
@@ -35,10 +29,10 @@ public class FileProcessor {
             return result;
     }
 
-    public static void writeFile(String output, ArrayList<String> result) throws IOException {
+    public void writeFile(String output, List<String> result) throws IOException {
         try {
             Path filePath = Path.of(output);
-            Files.write(filePath, result, StandardOpenOption.APPEND);
+            Files.write(filePath, result);
         } catch (IOException e) {
             throw new IOException(e.getMessage(), e);
         }

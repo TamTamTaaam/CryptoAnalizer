@@ -9,11 +9,11 @@ public class Result {
         this.message = message;
         this.resultCode = resultCode;
     }
+
     public String toString() {
         return "Result{" +
                 "message='" + message + '\'' +
                 ", resultCode=" + resultCode +
                 '}';
     }
-
 }
