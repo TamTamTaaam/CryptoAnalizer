@@ -2,12 +2,8 @@ package ru.javarush.pavlova.cryptoanalizer.commands;
 
 import ru.javarush.pavlova.cryptoanalizer.entity.Result;
 import ru.javarush.pavlova.cryptoanalizer.entity.ResultCode;
-
-
 import java.io.IOException;
 import java.util.List;
-
-
 
 public class Encoder implements Action {
     private int KEY;

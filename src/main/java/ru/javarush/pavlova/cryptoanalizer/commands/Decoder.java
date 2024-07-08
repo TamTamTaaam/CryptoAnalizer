@@ -2,10 +2,7 @@ package ru.javarush.pavlova.cryptoanalizer.commands;
 
 import ru.javarush.pavlova.cryptoanalizer.entity.Result;
 import ru.javarush.pavlova.cryptoanalizer.entity.ResultCode;
-import ru.javarush.pavlova.cryptoanalizer.file.FileProcessor;
-
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Decoder implements Action {

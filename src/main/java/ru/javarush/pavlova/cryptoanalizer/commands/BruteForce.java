@@ -2,8 +2,6 @@ package ru.javarush.pavlova.cryptoanalizer.commands;
 
 import ru.javarush.pavlova.cryptoanalizer.entity.Result;
 import ru.javarush.pavlova.cryptoanalizer.entity.ResultCode;
-import ru.javarush.pavlova.cryptoanalizer.file.FileProcessor;
-
 import java.util.*;
 
 public class BruteForce implements Action {
