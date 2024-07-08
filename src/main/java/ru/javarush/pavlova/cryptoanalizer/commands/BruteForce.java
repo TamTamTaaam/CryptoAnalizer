@@ -8,16 +8,16 @@ public class BruteForce implements Action {
 
     @Override
     public Result execute(String[] parameters) {
-        List<String> list = fileProcessor.readFile(parameters[0]);
-        List<String> partOfText = workingText.takeTextPart(list);
-        Map<Character, Integer> statisticalMap = workingStaticMap.creatingStatisticalMap(partOfText);
+        List<String> startText = fileProcessor.readFile(parameters[0]);
+        List<String> partOfText = workingText.takeTextPart(startText);
+        Map<Character, Integer> statisticalMap = workingStatisticalMap.creatingStatisticalMap(partOfText);
         int key = findKeyBruteForce(statisticalMap);
         String message = "bruteforce all right. Key = " + key;
         return new Result(message, ResultCode.OK);
     }
 
     private int findKeyBruteForce(Map<Character, Integer> statistic) {
-        Character theMostCommonChar = workingStaticMap.findTheMostCommonCharFromStatisticMap(statistic);
+        Character theMostCommonChar = workingStatisticalMap.findTheMostCommonCharFromStatisticMap(statistic);
         return alphabet.getCharIndex(theMostCommonChar) - alphabet.getCharIndex(' ');
     }
 }

@@ -6,11 +6,11 @@ import java.io.IOException;
 import java.util.List;
 
 public class Encoder implements Action {
-    private int KEY;
+    private int KEY=0;
     @Override
     public Result execute(String[] parameters) throws IOException {
         List<String> textBeforeEncoding =  fileProcessor.readFile(parameters[0]);
-        KEY = Integer.parseInt(parameters[parameters.length-1]);
+        KEY = KEY + Integer.parseInt(parameters[parameters.length-1]);
         List<String> textAfterEncoding = workingText.getResultConversionText(textBeforeEncoding, KEY);
         fileProcessor.writeFile(parameters[1], textAfterEncoding);
 

@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class WorkingStaticMap {
+public class WorkingStatisticalMap {
 
     public Map<Character, Integer> creatingStatisticalMap(List<String> partOfText) {
         Map<Character, Integer> statistic = new HashMap<>();

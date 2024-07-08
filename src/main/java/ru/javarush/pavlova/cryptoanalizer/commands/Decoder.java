@@ -6,11 +6,11 @@ import java.io.IOException;
 import java.util.List;
 
 public class Decoder implements Action {
-    private int KEY;
+    private int KEY = 0;
     @Override
     public Result execute(String[] parameters) throws IOException {
         List<String> textBeforeDecrypt = fileProcessor.readFile(parameters[0]);
-        KEY = 0 - Integer.parseInt(parameters[parameters.length-1]);
+        KEY = KEY - Integer.parseInt(parameters[parameters.length-1]);
         List<String> textAfterDecrypt = workingText.getResultConversionText(textBeforeDecrypt, KEY);
         fileProcessor.writeFile(parameters[1], textAfterDecrypt);
         return new Result("decode all right", ResultCode.OK);
