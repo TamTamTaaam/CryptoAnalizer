@@ -2,7 +2,6 @@ package ru.javarush.pavlova.cryptoanalizer;
 
 import ru.javarush.pavlova.cryptoanalizer.controllers.MainController;
 import ru.javarush.pavlova.cryptoanalizer.entity.Result;
-import ru.javarush.pavlova.exceptions.AppException;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -22,28 +21,28 @@ public class Application {
             Result result = mainController.doAction(action, parameters);
             return result;
         } else {
-            String[] strings = whatToDo();
+            String[] strings = gettingArgumentsFromConsole();
             Result result = mainController.doAction(strings[0], Arrays.copyOfRange(strings, 1, strings.length));
             return result;
         }
     }
-    public String[] whatToDo() {
+    public String[] gettingArgumentsFromConsole() {
         System.out.println("Что делать будем? \n" +
                 "1. Шифровать(кодировать)\n" +
                 "2. Расшифровывать(декодировать)\n" +
                 "3. Брутфорсить(искать ключ зашифрованного текста");
         Scanner scanner = new Scanner(System.in);
-        String value = scanner.nextLine();
-        while (!(value.equals("1")||value.equals("2")||value.equals("3"))) {
+        String valueAction = scanner.nextLine();
+        while (!(valueAction.equals("1")||valueAction.equals("2")||valueAction.equals("3"))) {
             System.out.println("Введите корректное значение.");
-            value = scanner.nextLine();
+            valueAction = scanner.nextLine();
         }
         System.out.println("Напишите путь к исходному файлу");
         String input = scanner.nextLine();
         String output = "";
         String  key = "";
         String action = "";
-        switch (value) {
+        switch (valueAction) {
             case "1" :
                 action = "encode";
                 System.out.println("Напишите путь, в котором должен лежать готовый файл");
